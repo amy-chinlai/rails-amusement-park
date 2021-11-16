@@ -24,7 +24,7 @@ class Ride < ActiveRecord::Base
 
     def take_ride
         if tall_enough? && enough_tickets?
-            take_ride
+            start_ride
              "Thanks for riding the #{attraction.name}!"
         elsif !tall_enough? && enough_tickets?
             "Sorry. You are not tall enough to ride the #{attraction.name}"
@@ -35,7 +35,7 @@ class Ride < ActiveRecord::Base
         end
     end
 
-    def take_ride
+    def start_ride
         subtract_tickets
         update_mood
     end
